@@ -37,9 +37,16 @@ describe("heapSort", function () {
     assert.deepEqual(heapSort(unsorted), sorted);
   });
 
-  it("should sort arrays that ends with zeros", function () {
+  it("should sort arrays that end with zeros", function () {
     const unsorted = [5, 4, 3, 2, 1, 0];
     const sorted = [0, 1, 2, 3, 4, 5];
+
+    assert.deepEqual(heapSort(unsorted), sorted);
+  });
+
+  it("should sort arrays of strings", function () {
+    const unsorted = ["foo", "bar", "baz", "cux"];
+    const sorted = ["bar", "baz", "cux", "foo"];
 
     assert.deepEqual(heapSort(unsorted), sorted);
   });
@@ -53,13 +60,6 @@ describe("heapSort", function () {
     assert.deepEqual(original, [5, 4, 3, 2, 1]);
   });
 
-  it("should sort arrays of strings", function () {
-    const unsorted = ["foo", "bar", "baz", "cux"];
-    const sorted = ["bar", "baz", "cux", "foo"];
-
-    assert.deepEqual(heapSort(unsorted), sorted);
-  });
-
   it("should do nothing to arrays of zeros", function () {
     const zeros = Array(5).fill(0);
     assert.deepEqual(heapSort(zeros), zeros);
@@ -69,27 +69,27 @@ describe("heapSort", function () {
     assert.deepEqual(heapSort([]), []);
   });
 
-  it("should do nothing to arrays one element", function () {
+  it("should do nothing to arrays of one element", function () {
     assert.deepEqual(heapSort([1]), [1]);
   });
 
-  it("should throw error when value passed is null", function () {
+  it("should throw an error when value passed is null", function () {
     assert.throws(() => heapSort(null), Error, nonArrayErrorMessage);
   });
 
-  it("should throw error when value passed is undefined", function () {
+  it("should throw an error when value passed is undefined", function () {
     assert.throws(() => heapSort(undefined), Error, nonArrayErrorMessage);
   });
 
-  it("should throw error when value passed is non-array", function () {
+  it("should throw an error when value passed is non-array", function () {
     assert.throws(() => heapSort("hello"), Error, nonArrayErrorMessage);
   });
 
-  it("should throw error when array includes NaN", function () {
+  it("should throw an error when array includes NaN", function () {
     assert.throws(() => heapSort([NaN, 12, 332]), Error, noNaNErrorMessage);
   });
 
-  it("should throw error when array is mixed of numbers and strings", function () {
+  it("should throw an error when array is mixed of numbers and strings", function () {
     assert.throws(
       () => heapSort(["foo", "bar", "baz", "cux", 5, 4, 3, 2, 1]),
       Error,
@@ -97,7 +97,7 @@ describe("heapSort", function () {
     );
   });
 
-  it("should throw error when array includes non-string or non-numeric elements", function () {
+  it("should throw an error when array includes non-string or non-numeric elements", function () {
     const unsorted = [null, undefined, 0, 11, "23223", 123123, true];
     assert.throws(
       () => heapSort(unsorted),
