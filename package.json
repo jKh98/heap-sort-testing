@@ -1,0 +1,11 @@
+{
+  "name": "heap-sort-testing",
+  "version": "1.0.0",
+  "description": "A project for unit testing heap sort algorithm",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jihad Al Khurfan",
+  "license": "ISC"
+}
